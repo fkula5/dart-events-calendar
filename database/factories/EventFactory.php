@@ -16,13 +16,13 @@ class EventFactory extends Factory
      */
     public function definition(): array
     {
-        $eventDate = fake()->dateTime();
+        //$eventDate = fake()->dateTimeBetween("+1 week", "+1 week");
         return [
             'name' => fake()->sentence($nbWords = 3, $variableNbWords  = true),
             'description' => fake()->sentence($nbWords = 6, $variableNbWords = true),
             'venue_id' => fake()->numberBetween(1,10),
-            'start_time' => $eventDate,
-            'finish_time' => $eventDate,
+            'start_time' => fake()->dateTimeBetween("+1 week", "+2 week"),
+            'finish_time' => fake()->dateTimeBetween("+1 week", "+2 week"),
             'created_by' => fake()->numberBetween(1,10)
         ];
     }
